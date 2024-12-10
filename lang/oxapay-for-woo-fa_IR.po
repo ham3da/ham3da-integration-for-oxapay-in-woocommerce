@@ -1,0 +1,507 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Woo OxaPay\n"
+"POT-Creation-Date: 2024-12-10 18:26+0330\n"
+"PO-Revision-Date: 2024-12-10 18:27+0330\n"
+"Last-Translator: \n"
+"Language-Team: ham3da.j@gmail.com\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: oxapay-for-woo.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: inc/gateway-class.php:27 inc/gateway-class.php:148
+msgid "Pay with OxaPay"
+msgstr "پرداخت با OxaPay"
+
+#: inc/gateway-class.php:28 inc/gateway-class.php:89 inc/gateway-class.php:135
+#: inc/woo-block.php:16
+msgid "OxaPay"
+msgstr ""
+
+#: inc/gateway-class.php:29
+msgid "OxaPay redirects customers to OxaPay website for payment."
+msgstr ""
+"OxaPay مشتریان را برای پرداخت توسط رمزارزها به سامانه OxaPay هدایت می‌کند."
+
+#: inc/gateway-class.php:115
+msgid "OxaPay Settings"
+msgstr "تنظیمات OxaPay"
+
+#: inc/gateway-class.php:117
+msgid "Complete this form after creating an account in OxaPay."
+msgstr "پس از ایجاد حساب کاربری در OxaPay، این فرم را تکمیل کنید."
+
+#: inc/gateway-class.php:120
+msgid "Create an account"
+msgstr "ایجاد حساب کاربری"
+
+#: inc/gateway-class.php:126
+msgid "Enable/Disable"
+msgstr "فعال/غیرفعال"
+
+#: inc/gateway-class.php:128
+msgid "Enable OxaPay payment method"
+msgstr "روش پرداخت OxaPay را فعال کنید"
+
+#: inc/gateway-class.php:132
+msgid "Title"
+msgstr "عنوان"
+
+#: inc/gateway-class.php:134
+msgid "This controls the title which the user sees during checkout."
+msgstr "عنوانی را که کاربر در هنگام پرداخت می بیند تعیین می‌کند."
+
+#: inc/gateway-class.php:139
+msgid "Description"
+msgstr "شرح"
+
+#: inc/gateway-class.php:142
+msgid "This controls the description which the user sees during checkout."
+msgstr ""
+"در این بخش متنی را که می‌خواهید کاربر در هنگام انتخاب این درگاه مشاهده نماید "
+"وارد نمایید."
+
+#: inc/gateway-class.php:143
+msgid "Secure payment with OxaPay payment gateway"
+msgstr "پرداخت امن با ارز دیجیتال"
+
+#: inc/gateway-class.php:146
+msgid "Order button text"
+msgstr "متن دکمه پرداخت"
+
+#: inc/gateway-class.php:152
+msgid "Merchant API Key"
+msgstr ""
+
+#: inc/gateway-class.php:154
+msgid "Please enter your OxaPay Merchant API Key."
+msgstr "لطفا کلید OxaPay Merchant API خود را وارد کنید."
+
+#: inc/gateway-class.php:159
+msgid "Debug Log"
+msgstr "گزارش عیب یابی"
+
+#: inc/gateway-class.php:161
+msgid "Enable logging"
+msgstr "فعال سازی عیب‌یابی"
+
+#: inc/gateway-class.php:163
+msgid "Log OxaPay events, such as payment confirmations."
+msgstr "رویدادهای OxaPay مانند تأییدیه‌های پرداخت را ثبت کنید."
+
+#: inc/gateway-class.php:167
+msgid "Payment expiration"
+msgstr "انقضای پرداخت"
+
+#: inc/gateway-class.php:168
+msgid "Select the payment expiration time."
+msgstr "زمان انقضا را برای لینک پرداخت تنظیم کنید."
+
+#: inc/gateway-class.php:170
+msgid "15 mins"
+msgstr "15 دقیقه"
+
+#: inc/gateway-class.php:171
+msgid "30 mins"
+msgstr "30 دقیقه"
+
+#: inc/gateway-class.php:172
+msgid "60 mins"
+msgstr "60 دقیقه"
+
+#: inc/gateway-class.php:173
+msgid "90 mins"
+msgstr "90 دقیقه"
+
+#: inc/gateway-class.php:174
+msgid "120 mins"
+msgstr "120 دقیقه"
+
+#: inc/gateway-class.php:180
+msgid "Is fee paid by user?"
+msgstr "آیا کارمزد توسط کاربر پرداخت خواهد شد؟"
+
+#: inc/gateway-class.php:181
+msgid ""
+"In this section, you determine whether the user will pay the transaction fee."
+msgstr ""
+"در این بخش تعیین می‌کنید که آیا کاربر کارمزد تراکنش را پرداخت خواهد کرد یا نه."
+
+#: inc/gateway-class.php:183
+msgid "No"
+msgstr "نخیر"
+
+#: inc/gateway-class.php:184
+msgid "Yes"
+msgstr "بله"
+
+#: inc/gateway-class.php:189
+msgid "Gateway logo"
+msgstr "لوگوی درگاه"
+
+#: inc/gateway-class.php:192
+msgid "Logo URL"
+msgstr "آدرس لوگو"
+
+#: inc/gateway-class.php:196
+msgid "Conversion Rate"
+msgstr "نرخ تبدیل"
+
+#. translators: %s: woocommerce currency symbol
+#: inc/gateway-class.php:198
+msgid ""
+"If your WooCommerce currency is not usd, enter the conversion rate; Otherwise "
+"enter 1."
+msgstr ""
+"اگر واحد پولی ووکامرس شما USD نیست؛ نرخ تبدیل را وارد کنید؛ در غیر این صورت 1 "
+"را وارد کنید."
+
+#: inc/gateway-class.php:198
+#, php-format
+msgid "Method of calculating the conversion rate: the price of one USD to %s"
+msgstr "روش محاسبه نرخ تبدیل: قیمت یک دلار آمریکا به %s"
+
+#: inc/gateway-class.php:204
+msgid "Automatic conversion rate updates"
+msgstr "به روز رسانی خودکار نرخ تبدیل"
+
+#. translators: %s: currencyapi address
+#: inc/gateway-class.php:207
+#, php-format
+msgid "Automatic update of conversion rate from %s ."
+msgstr "به روز رسانی خودکار نرخ تبدیل از %s ."
+
+#: inc/gateway-class.php:208
+msgid "Use this url to automatically update the rate in Cron jobs:"
+msgstr ""
+"از این آدرس برای به روز رسانی خودکار نرخ تبدیل در کران جاب استفاده نمایید:"
+
+#: inc/gateway-class.php:212
+msgid "API Key"
+msgstr "کلید API"
+
+#. translators: %s: currencyapi address
+#: inc/gateway-class.php:216
+#, php-format
+msgid "Get it from %s"
+msgstr "آن را از %s دریافت کنید"
+
+#: inc/gateway-class.php:226
+msgid "Unknown error"
+msgstr "خطای ناشناخته"
+
+#: inc/gateway-class.php:248
+msgid "No HMAC signature sent."
+msgstr "امضای HMAC ارسال نشده است."
+
+#. translators: %s: order id
+#: inc/gateway-class.php:263
+#, php-format
+msgid "Payment has already been completed.[id: %s]"
+msgstr "پرداخت در حال حاضر کامل شده است. [شناسه: %s]"
+
+#: inc/gateway-class.php:265
+msgid "Payment has already been completed."
+msgstr "پرداخت در حال حاضر تکمیل شده است. [شناسه: %s]"
+
+#. translators: %s: order id
+#: inc/gateway-class.php:269
+#, php-format
+msgid "Order not found![id: %s]"
+msgstr "سفارش پیدا نشد! [شناسه: %s]"
+
+#: inc/gateway-class.php:362
+msgid "Payment was successful!"
+msgstr "تراکنش با موفقیت انجام شد!"
+
+#: inc/gateway-class.php:367
+msgid "Order is confirming."
+msgstr "سفارش در حال تایید است."
+
+#: inc/gateway-class.php:372
+msgid "Order is failed."
+msgstr "سفارش با شکست مواجه شد."
+
+#: inc/gateway-class.php:378
+msgid "Order is pending."
+msgstr "سفارش در انتظار است."
+
+#. translators: %s: track Id
+#: inc/gateway-class.php:383
+#, php-format
+msgid "Awaiting Payment. payment id: %s"
+msgstr "در انتظار پرداخت. شناسه پرداخت: %s"
+
+#: inc/gateway-class.php:450
+msgid "Error connecting to payment gateway"
+msgstr "خطای اتصال به درگاه پرداخت: %s"
+
+#: inc/gateway-class.php:473
+msgid "An error has occurred."
+msgstr "خطایی رخ داده است."
+
+#: inc/gateway-class.php:474
+msgid "An error has occurred. Contact site support."
+msgstr "خطایی رخ داده است. با پشتیبانی سایت تماس بگیرید."
+
+#. translators: %s: error msg
+#: inc/gateway-class.php:477
+#, php-format
+msgid "Error connecting to the payment gateway: %s"
+msgstr "خطا در اتصال به درگاه پرداخت: %s"
+
+#: inc/gateway-class.php:486 inc/gateway-class.php:487 inc/gateway-class.php:492
+msgid "The payment amount is invalid!"
+msgstr "مبلغ پرداخت نامعتبر است!"
+
+#: inc/gateway-class.php:529
+msgid "Amount paid:"
+msgstr "مبلغ پرداختی:"
+
+#: inc/gateway-class.php:529
+msgid "Amount to pay:"
+msgstr "مبلغ پرداختی:"
+
+#: inc/gateway-class.php:531
+msgid "USD"
+msgstr "دلار"
+
+#: inc/gateway-class.php:536
+msgid "Track ID:"
+msgstr "شناسه تراکنش:"
+
+#: inc/gateway-class.php:542
+msgid "Payer address:"
+msgstr "آدرس پرداخت کننده:"
+
+#: inc/gateway-class.php:551
+msgid "Status:"
+msgstr "وضعیت:"
+
+#: inc/gateway-class.php:555
+msgid "CryptoCurrency payment"
+msgstr "پرداخت رمز ارزی"
+
+#: inc/gateway-class.php:587
+msgid "Equal to"
+msgstr "برابر با"
+
+#. translators: %s: amount
+#: inc/gateway-class.php:597
+#, php-format
+msgid "$ %s"
+msgstr ""
+
+#: inc/woo-block.php:16
+msgid "Proceed to OxaPay"
+msgstr "پرداخت با ارز دیجیتال"
+
+#: inc/woo-block.php:16
+msgid "Payment via OxaPay"
+msgstr "پرداخت از طریق OxaPay"
+
+#. Plugin Name of the plugin/theme
+msgid "OxaPay for Woo"
+msgstr "OxaPay برای ووکامرس"
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/oxapay-for-woo"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"With OxaPay for Woo, your WooCommerce store can process cryptocurrency "
+"payments."
+msgstr "با OxaPay ، امکان پذیرش رمزارزها برای فروشگاه ووکامرسی شما فراهم می‌شود."
+
+#. Author of the plugin/theme
+msgid "ham3da"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://ham3da.ir"
+msgstr ""
+
+#~ msgid "Amount:"
+#~ msgstr "مبلغ:"
+
+#~ msgid "Woo OxaPay"
+#~ msgstr "OxaPay برای ووکامرس"
+
+#~ msgid "Hi %s, to Register %s Plugin click %s."
+#~ msgstr "سلام %s ، برای ثبت و فعال‌سازی افزونه %s %s کلیک کنید."
+
+#~ msgid "Here"
+#~ msgstr "اینجا"
+
+#~ msgid "Plugin license registration successful."
+#~ msgstr "ثبت لایسنس افزونه با موفقیت انجام شد."
+
+#~ msgid "Error: The request failed!"
+#~ msgstr "خطا: درخواست با شکست مواجه شد!"
+
+#~ msgid "Error: "
+#~ msgstr "خطا: "
+
+#~ msgid "Please enter the license code."
+#~ msgstr "لطفا کد فعال سازی را وارد کنید."
+
+#~ msgid "Congratulations! This plugin is active."
+#~ msgstr "تبریک می‌گوییم! این افزونه فعال‌سازی شده است."
+
+#~ msgid "This plugin requires a license to use it."
+#~ msgstr "برای استفاده از این پلاگین باید لایسنس آن را ثبت کنید."
+
+#~ msgid "License Key"
+#~ msgstr "کلید لایسنس"
+
+#~ msgid ""
+#~ "When you purchase this product from %s, a license key is assigned to your "
+#~ "order and you can see it in your User Panel."
+#~ msgstr ""
+#~ "هنگامی که این محصول را از %s خریداری کرده‌اید، یک کلید لایسنس به سفارش شما "
+#~ "اختصاص داده شده است که می‌توانید آن را در پنل کاربری خود مشاهده کنید."
+
+#~ msgid "Submit"
+#~ msgstr "ثبت"
+
+#~ msgid "Gateway settings"
+#~ msgstr "تنظیمات درگاه پرداخت"
+
+#~ msgid "Version: %s"
+#~ msgstr "نگارش: %s"
+
+#~ msgid "OxaPay Gateway License Expiration"
+#~ msgstr "انقضای لایسنس درگاه OxaPay"
+
+#~ msgid ""
+#~ "Hi, dear user, %s Plugin License has expired on your site. Please "
+#~ "reactivate it."
+#~ msgstr ""
+#~ "سلام، کاربر گرامی، مجوز افزونه %s در سایت شما منقضی شده است. لطفاً نسبت به "
+#~ "فعال‌سازی مجدد آن اقدام نمایید."
+
+#~ msgid "If you think this is a mistake, please contact %s support."
+#~ msgstr ""
+#~ "اگر فکر می‌کنید این کار به اشتباه انجام شده است ، لطفاً با پشتیبانی %s تماس "
+#~ "بگیرید."
+
+#~ msgid "Error checking license status!"
+#~ msgstr "خطا در بررسی وضعیت لایسنس!"
+
+#~ msgid "Javad Ehteshami"
+#~ msgstr "جواد احتشامی"
+
+#~ msgid "here"
+#~ msgstr "اینجا"
+
+#~ msgid "WC NowPayments"
+#~ msgstr "درگاه NowPayments برای ووکامرس"
+
+#~ msgid "NowPayments"
+#~ msgstr "NowPayments"
+
+#~ msgid "NowPayments Settings"
+#~ msgstr "تنظیمات NowPayments"
+
+#~ msgid "IPN Secret key"
+#~ msgstr "IPN Secret key"
+
+#~ msgid "Instant Payment Notifications Secret key"
+#~ msgstr "Instant Payment Notifications Secret key"
+
+#~ msgid "Invoice Prefix"
+#~ msgstr "پیشوند فاکتور"
+
+#~ msgid ""
+#~ "Please enter a prefix for your invoice numbers. If you use your nowpayments."
+#~ "io account for multiple stores ensure this prefix is unique."
+#~ msgstr ""
+#~ "لطفاً پیشوند فاکتور خود را وارد کنید. اگر از حساب کاربری nowpayments.io برای "
+#~ "چندین فروشگاه استفاده می کنید اطمینان حاصل کنید که این پیشوند منحصر به فرد "
+#~ "است."
+
+#~ msgid "Description of products"
+#~ msgstr "شرح محصولات"
+
+#~ msgid ""
+#~ "If this input field is present, the Description area of the NowPayments "
+#~ "payment form is pre-filled in with its value. Max length: 255 characters."
+#~ "<br>(Variables: %site_title%: site title - %order_id%: order id)"
+#~ msgstr ""
+#~ "مقدار موجود در این قسمت، در بخش شرح پرداخت در فرم پرداخت NowPayments نمایش "
+#~ "داده خواهد شد. حداکثر 255 کاراکتر.<br>(متغیرها: %site_title%: عنوان سایت - "
+#~ "%order_id%: شناسه سفارش)"
+
+#~ msgid "%site_title% Order #%order_id%"
+#~ msgstr "%site_title% Order #%order_id%"
+
+#~ msgid "NowPayments Payment Details"
+#~ msgstr "جزئیات پرداخت با NowPayments"
+
+#~ msgid "Payment id:"
+#~ msgstr "شناسه پرداخت:"
+
+#~ msgid "The payment amount is less than the total amount of the order."
+#~ msgstr "مبلغ پرداخت شده کمتر از مبلغ کل سفارش است."
+
+#~ msgid "Original currency doesn't match!"
+#~ msgstr "ارز اصلی مطابقت ندارد!"
+
+#~ msgid "Order is failed!"
+#~ msgstr "سفارش با شکست مواجه شد!"
+
+#~ msgid "Get payment status error!"
+#~ msgstr "دریافت خطای وضعیت پرداخت!"
+
+#~ msgid "Payment information is incorrect!"
+#~ msgstr "اطلاعات پرداخت نادرست است!"
+
+#~ msgid "Payment status error!"
+#~ msgstr "خطا در وضعیت پرداخت!"
+
+#~ msgid "Transaction Code:"
+#~ msgstr "کد تراکنش:"
+
+#~ msgid "The payment amount is less than the original amount!"
+#~ msgstr "مبلغ پرداخت کمتر از مقدار تعیین شده است!"
+
+#~ msgid "Order is confirmed."
+#~ msgstr "سفارش تایید شد."
+
+#~ msgid "Order is expired."
+#~ msgstr "سفارش منقضی شده است."
+
+#~ msgid "Connection error: "
+#~ msgstr "خطای اتصال: "
+
+#~ msgid "Payment ID:"
+#~ msgstr "شناسه پرداخت:"
+
+#~ msgid "This plugin adds NowPayments payment gateway to WooCommerce."
+#~ msgstr "این افزونه درگاه پرداخت NowPayments را به ووکامرس اضافه می‌کند."
+
+#~ msgid "Redirecting..."
+#~ msgstr "در حال انتقال ..."
+
+#~ msgid ""
+#~ "Thank you for your order. We are now redirecting you to Payment Gateway to "
+#~ "make payment."
+#~ msgstr ""
+#~ "با تشکر از سفارش شما. جهت پرداخت وجه هم اکنون شما را به درگاه پرداخت هدایت "
+#~ "می‌کنیم."
+
+#~ msgid "WebMoney Payment Details"
+#~ msgstr "جزئیات پرداخت NowPayments"

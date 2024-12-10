@@ -1,0 +1,82 @@
+.wcpl_export_users
+{
+    margin: 10px;
+}
+.wcpl_export_users .title
+{
+    margin: 20px;
+    text-align: center;
+
+}
+
+.wcpl_export_users .title span
+{
+    /*    border: solid 1px activeborder;*/
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+html[lang="fa-IR"] .wcpl_export_users .checkbox_div
+{
+    border-right: solid 3px #0073aa;
+    border-left: unset;
+    padding-right: 5px;    
+}
+
+.wcpl_export_users .checkbox_div
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    border-left: solid 2px #0073aa;
+    border-right: unset;
+    padding-left: 5px;
+}
+
+.wcpl_lable_fields
+{
+    font-size: 14px;
+    margin-top: 5px; 
+    display: inline-block;
+    
+}
+
+.wcpl_export_users form
+{
+    margin-top: 20px;
+    width: 500px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 10px; 
+    padding: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.wcpl_export_users .version
+{
+    margin-top: 20px;
+    text-align: center;
+}
+
+html[lang="fa-IR"] .wcpl_export_users form  .btn_div
+{
+    text-align: left;
+}
+
+.wcpl_export_users form .btn_div
+{
+    text-align: right;
+    padding: 20px;
+}
+.wcpl_export_users form .btn_div .button-large
+{
+    width: 200px;
+}
+
+@media only screen and (max-width: 600px) 
+{
+    .wcpl_export_users form
+    {
+        width: 90%;
+    }
+}
+/*code: 3a0b1eec81400c2c0730578392ca53f6*/
