@@ -50,7 +50,7 @@ add_action('plugins_loaded', function () {
     add_action('woocommerce_order_details_after_order_table',  'WC_OxaPay_Gateway::details_after_order_table' , 1, 1);
 }, 0);
 
-function wcnp_woo_blocks_support() {
+function oxapay_woo_blocks_support() {
     if (class_exists('Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType')) {
         add_action('woocommerce_blocks_payment_method_type_registration',
                 function (Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry $payment_method_registry) {
@@ -60,7 +60,7 @@ function wcnp_woo_blocks_support() {
         );
     }
 }
-add_action('woocommerce_blocks_loaded', 'wcnp_woo_blocks_support');
+add_action('woocommerce_blocks_loaded', 'oxapay_woo_blocks_support');
 
 require_once OxaPay_PLUGIN_DIR . 'inc/functions.php';
 
