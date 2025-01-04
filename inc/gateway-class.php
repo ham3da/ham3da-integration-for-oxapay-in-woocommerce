@@ -200,6 +200,17 @@ class WC_OxaPay_Gateway extends WC_Payment_Gateway {
                 'default' => '1',
                 'desc_tip' => false,
             ),
+            'is_show_usd_price' => array(
+                'type' => 'select',
+                'title' => __('Show total amount in USD', 'oxapay-for-woo'),
+                'description' => __('Display the total amount in USD on the checkout page', 'oxapay-for-woo'),
+                'options' => array(
+                    '0' => __('No', 'oxapay-for-woo'),
+                    '1' => __('Yes', 'oxapay-for-woo'),
+                ),
+                'default' => '0',
+            ),
+            
             'currencyapi_title' => array(
                 'title' => __('Automatic conversion rate updates', 'oxapay-for-woo'),
                 'type' => 'title',
@@ -576,9 +587,10 @@ class WC_OxaPay_Gateway extends WC_Payment_Gateway {
 
         $enabled = isset($settings['enabled']) ? $settings['enabled'] : 'no';
 
+        $is_show_usd_price = isset($settings['is_show_usd_price']) ? $settings['is_show_usd_price'] : 0;
         //$wm_currency = "";
 
-        if ($wm_convert_rate2 && $enabled == 'yes') {
+        if ($wm_convert_rate2 && $enabled == 'yes' && $is_show_usd_price == 1) {
             if (strtolower($wc_cuurency) != "usd") {
                 ?>
                 <tr>
