@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Woo OxaPay\n"
-"POT-Creation-Date: 2024-12-10 18:26+0330\n"
-"PO-Revision-Date: 2024-12-10 18:27+0330\n"
+"POT-Creation-Date: 2024-12-25 01:05+0330\n"
+"PO-Revision-Date: 2024-12-25 01:05+0330\n"
 "Last-Translator: \n"
 "Language-Team: ham3da.j@gmail.com\n"
 "Language: fa_IR\n"
@@ -139,11 +139,11 @@ msgid ""
 msgstr ""
 "در این بخش تعیین می‌کنید که آیا کاربر کارمزد تراکنش را پرداخت خواهد کرد یا نه."
 
-#: inc/gateway-class.php:183
+#: inc/gateway-class.php:183 inc/gateway-class.php:208
 msgid "No"
 msgstr "نخیر"
 
-#: inc/gateway-class.php:184
+#: inc/gateway-class.php:184 inc/gateway-class.php:209
 msgid "Yes"
 msgstr "بله"
 
@@ -173,133 +173,141 @@ msgstr ""
 msgid "Method of calculating the conversion rate: the price of one USD to %s"
 msgstr "روش محاسبه نرخ تبدیل: قیمت یک دلار آمریکا به %s"
 
-#: inc/gateway-class.php:204
+#: inc/gateway-class.php:205
+msgid "Show total amount in USD"
+msgstr "نمایش مبلغ کل به دلار"
+
+#: inc/gateway-class.php:206
+msgid "Display the total amount in USD on the checkout page"
+msgstr "نمایش مبلغ کل به دلار در صفحه پرداخت"
+
+#: inc/gateway-class.php:215
 msgid "Automatic conversion rate updates"
 msgstr "به روز رسانی خودکار نرخ تبدیل"
 
 #. translators: %s: currencyapi address
-#: inc/gateway-class.php:207
+#: inc/gateway-class.php:218
 #, php-format
 msgid "Automatic update of conversion rate from %s ."
 msgstr "به روز رسانی خودکار نرخ تبدیل از %s ."
 
-#: inc/gateway-class.php:208
+#: inc/gateway-class.php:219
 msgid "Use this url to automatically update the rate in Cron jobs:"
 msgstr ""
 "از این آدرس برای به روز رسانی خودکار نرخ تبدیل در کران جاب استفاده نمایید:"
 
-#: inc/gateway-class.php:212
+#: inc/gateway-class.php:223
 msgid "API Key"
 msgstr "کلید API"
 
 #. translators: %s: currencyapi address
-#: inc/gateway-class.php:216
+#: inc/gateway-class.php:227
 #, php-format
 msgid "Get it from %s"
 msgstr "آن را از %s دریافت کنید"
 
-#: inc/gateway-class.php:226
+#: inc/gateway-class.php:237
 msgid "Unknown error"
 msgstr "خطای ناشناخته"
 
-#: inc/gateway-class.php:248
+#: inc/gateway-class.php:259
 msgid "No HMAC signature sent."
 msgstr "امضای HMAC ارسال نشده است."
 
 #. translators: %s: order id
-#: inc/gateway-class.php:263
+#: inc/gateway-class.php:274
 #, php-format
 msgid "Payment has already been completed.[id: %s]"
 msgstr "پرداخت در حال حاضر کامل شده است. [شناسه: %s]"
 
-#: inc/gateway-class.php:265
+#: inc/gateway-class.php:276
 msgid "Payment has already been completed."
 msgstr "پرداخت در حال حاضر تکمیل شده است. [شناسه: %s]"
 
 #. translators: %s: order id
-#: inc/gateway-class.php:269
+#: inc/gateway-class.php:280
 #, php-format
 msgid "Order not found![id: %s]"
 msgstr "سفارش پیدا نشد! [شناسه: %s]"
 
-#: inc/gateway-class.php:362
+#: inc/gateway-class.php:373
 msgid "Payment was successful!"
 msgstr "تراکنش با موفقیت انجام شد!"
 
-#: inc/gateway-class.php:367
+#: inc/gateway-class.php:378
 msgid "Order is confirming."
 msgstr "سفارش در حال تایید است."
 
-#: inc/gateway-class.php:372
+#: inc/gateway-class.php:383
 msgid "Order is failed."
 msgstr "سفارش با شکست مواجه شد."
 
-#: inc/gateway-class.php:378
+#: inc/gateway-class.php:389
 msgid "Order is pending."
 msgstr "سفارش در انتظار است."
 
 #. translators: %s: track Id
-#: inc/gateway-class.php:383
+#: inc/gateway-class.php:394
 #, php-format
 msgid "Awaiting Payment. payment id: %s"
 msgstr "در انتظار پرداخت. شناسه پرداخت: %s"
 
-#: inc/gateway-class.php:450
+#: inc/gateway-class.php:461
 msgid "Error connecting to payment gateway"
 msgstr "خطای اتصال به درگاه پرداخت: %s"
 
-#: inc/gateway-class.php:473
+#: inc/gateway-class.php:484
 msgid "An error has occurred."
 msgstr "خطایی رخ داده است."
 
-#: inc/gateway-class.php:474
+#: inc/gateway-class.php:485
 msgid "An error has occurred. Contact site support."
 msgstr "خطایی رخ داده است. با پشتیبانی سایت تماس بگیرید."
 
 #. translators: %s: error msg
-#: inc/gateway-class.php:477
+#: inc/gateway-class.php:488
 #, php-format
 msgid "Error connecting to the payment gateway: %s"
 msgstr "خطا در اتصال به درگاه پرداخت: %s"
 
-#: inc/gateway-class.php:486 inc/gateway-class.php:487 inc/gateway-class.php:492
+#: inc/gateway-class.php:497 inc/gateway-class.php:498 inc/gateway-class.php:503
 msgid "The payment amount is invalid!"
 msgstr "مبلغ پرداخت نامعتبر است!"
 
-#: inc/gateway-class.php:529
+#: inc/gateway-class.php:540
 msgid "Amount paid:"
 msgstr "مبلغ پرداختی:"
 
-#: inc/gateway-class.php:529
+#: inc/gateway-class.php:540
 msgid "Amount to pay:"
 msgstr "مبلغ پرداختی:"
 
-#: inc/gateway-class.php:531
+#: inc/gateway-class.php:542
 msgid "USD"
 msgstr "دلار"
 
-#: inc/gateway-class.php:536
+#: inc/gateway-class.php:547
 msgid "Track ID:"
 msgstr "شناسه تراکنش:"
 
-#: inc/gateway-class.php:542
+#: inc/gateway-class.php:553
 msgid "Payer address:"
 msgstr "آدرس پرداخت کننده:"
 
-#: inc/gateway-class.php:551
+#: inc/gateway-class.php:562
 msgid "Status:"
 msgstr "وضعیت:"
 
-#: inc/gateway-class.php:555
+#: inc/gateway-class.php:566
 msgid "CryptoCurrency payment"
 msgstr "پرداخت رمز ارزی"
 
-#: inc/gateway-class.php:587
+#: inc/gateway-class.php:599
 msgid "Equal to"
 msgstr "برابر با"
 
 #. translators: %s: amount
-#: inc/gateway-class.php:597
+#: inc/gateway-class.php:609
 #, php-format
 msgid "$ %s"
 msgstr ""
