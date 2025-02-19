@@ -1,6 +1,6 @@
-=== ham3da integration for OxaPay in WooCommerce ===
+=== ham3da integration for OxaPay ===
 Contributors: ham3da
-Tags: crypto payment, bitcoin, usdt, bnb, payment gateway, farsi, persian to persian
+Tags: crypto payment, bitcoin, usdt, bnb, payment gateway, farsi
 Requires at least: 5.0
 Tested up to: 6.7.1
 Stable tag: 1.1.0
@@ -12,7 +12,7 @@ Accept cryptocurrency payments on your WooCommerce store.
 
 == Description ==
 
-ham3da integration for OxaPay in WooCommerce is a WooCommerce plugin that allows your customers to pay for their orders using cryptocurrency. 
+ham3da integration for OxaPay is a WooCommerce plugin that allows your customers to pay for their orders using cryptocurrency. 
 It provides a seamless and secure checkout experience, making it easy for your customers to shop with their preferred digital assets.
 
 
@@ -32,15 +32,15 @@ It provides a seamless and secure checkout experience, making it easy for your c
 
 == Installation ==
 
-1. Upload ham3da integration for OxaPay in WooCommerce to your wordpress and activate it.
+1. Upload ham3da integration for OxaPay to your wordpress and activate it.
 2. Go to the Admin panel -> Woocommerece -> Settings -> Payments -> OxaPay.
 3. Enable it and complete the settings.
 4. You can now make a test purchase with this payment gateway.
 
 == Screenshots ==
 
-1. ham3da integration for OxaPay in WooCommerce plugin settings (1)
-2. ham3da integration for OxaPay in WooCommerce plugin settings (2)
+1. ham3da integration for OxaPay plugin settings (1)
+2. ham3da integration for OxaPay plugin settings (2)
 3. Checkout and OxaPay payment method
 4. OxaPay hosted invoice(1) - Select currency and network to pay. Displayed to the user after he clicked the "Pay with OxaPay" button. 
 5. OxaPay hosted invoice(2) - Send currency to the displayed address. Displayed to the user after he clicked the "Proceed to payment" button.
@@ -71,7 +71,7 @@ Yes, You can use "sandbox" as an Merchant API key for testing.
 
 1. Get started by signing up for a [OxaPay Merchant API](https://oxapay.com/?ref=30943315)
 2. Look for the OxaPay plugin via the [WordPress Plugin Manager](https://codex.wordpress.org/Plugins_Add_New_Screen). From your WordPress admin panel, go to Plugins > Add New > Search plugins and type **OxaPay**
-3. Select **ham3da integration for OxaPay in WooCommerce** and click on **Install Now** and then on **Activate Plugin**
+3. Select **ham3da integration for OxaPay** and click on **Install Now** and then on **Activate Plugin**
 
 After the plugin is activated, OxaPay will appear in the WooCommerce > Settings > Payments section.
 

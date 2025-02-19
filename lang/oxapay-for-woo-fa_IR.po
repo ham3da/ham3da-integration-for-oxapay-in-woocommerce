@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Woo OxaPay\n"
-"POT-Creation-Date: 2024-12-25 01:05+0330\n"
-"PO-Revision-Date: 2024-12-25 01:05+0330\n"
+"POT-Creation-Date: 2025-02-19 20:13+0330\n"
+"PO-Revision-Date: 2025-02-19 20:15+0330\n"
 "Last-Translator: \n"
 "Language-Team: ham3da.j@gmail.com\n"
 "Language: fa_IR\n"
@@ -321,18 +321,19 @@ msgid "Payment via OxaPay"
 msgstr "پرداخت از طریق OxaPay"
 
 #. Plugin Name of the plugin/theme
-msgid "OxaPay for Woo"
-msgstr "OxaPay برای ووکامرس"
+msgid "ham3da integration for OxaPay"
+msgstr "درگاه OxaPay برای ووکامرس"
 
 #. Plugin URI of the plugin/theme
-msgid "https://wordpress.org/plugins/oxapay-for-woo"
+msgid ""
+"https://wordpress.org/plugins/ham3da-integration-for-oxapay-in-woocommerce"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid ""
-"With OxaPay for Woo, your WooCommerce store can process cryptocurrency "
-"payments."
-msgstr "با OxaPay ، امکان پذیرش رمزارزها برای فروشگاه ووکامرسی شما فراهم می‌شود."
+msgid "Accept cryptocurrency payments on your WooCommerce store."
+msgstr ""
+"با OxaPay، امکان پرداخت سفارش‌ها با رمزارزها برای فروشگاه ووکامرسی شما فراهم "
+"می‌شود."
 
 #. Author of the plugin/theme
 msgid "ham3da"
@@ -341,6 +342,15 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "https://ham3da.ir"
 msgstr ""
+
+#~ msgid "OxaPay for Woo"
+#~ msgstr "OxaPay برای ووکامرس"
+
+#~ msgid ""
+#~ "With OxaPay for Woo, your WooCommerce store can process cryptocurrency "
+#~ "payments."
+#~ msgstr ""
+#~ "با OxaPay ، امکان پذیرش رمزارزها برای فروشگاه ووکامرسی شما فراهم می‌شود."
 
 #~ msgid "Amount:"
 #~ msgstr "مبلغ:"

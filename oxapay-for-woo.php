@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: ham3da integration for OxaPay in WooCommerce
+ * Plugin Name: ham3da integration for OxaPay
  * Plugin URI: https://wordpress.org/plugins/ham3da-integration-for-oxapay-in-woocommerce
  * Description: Accept cryptocurrency payments on your WooCommerce store.
  * Author: ham3da
