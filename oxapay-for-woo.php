@@ -69,7 +69,6 @@ require_once OxaPay_PLUGIN_DIR . 'inc/functions.php';
 //});
 
 add_action('wp_ajax_oxapay_check_register', 'WC_OxaPay_Utility::ajax_check_register_plugin');
-
 add_action('init', function () {
      $action = filter_input(INPUT_GET, 'wcox_action');
     if ($action == 'update_currencyapi_rate')
