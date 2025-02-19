@@ -1,6 +1,6 @@
 === ham3da integration for OxaPay in WooCommerce ===
 Contributors: ham3da
-Tags: crypto payment, bitcoin, usdt, bnb, woocommerce gateway, farsi, persian to persian
+Tags: crypto payment, bitcoin, usdt, bnb, payment gateway, farsi, persian to persian
 Requires at least: 5.0
 Tested up to: 6.7.1
 Stable tag: 1.1.0
