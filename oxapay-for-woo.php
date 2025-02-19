@@ -6,7 +6,7 @@
  * Description: Accept cryptocurrency payments on your WooCommerce store.
  * Author: ham3da
  * Author URI: https://ham3da.ir
- * Version: 1.0
+ * Version: 1.1.0
  * Text Domain: oxapay-for-woo
  * Domain Path: /lang
  * WC requires at least: 6.9
@@ -14,7 +14,7 @@
  * License: GPLv3 or later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  */
-define('OxaPay_PLUGIN_VER', '1.0');
+define('OxaPay_PLUGIN_VER', '1.1.0');
 
 define('OxaPay_PLUGIN_FILE', __FILE__);
 define('OxaPay_PLUGIN_DIR', plugin_dir_path(__FILE__));

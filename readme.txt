@@ -3,7 +3,7 @@ Contributors: ham3da
 Tags: crypto payment, bitcoin, usdt, bnb, woocommerce gateway, farsi, persian to persian
 Requires at least: 5.0
 Tested up to: 6.7.1
-Stable tag: 1.0
+Stable tag: 1.1.0
 Requires PHP: 7.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -80,3 +80,6 @@ After the plugin is activated, OxaPay will appear in the WooCommerce > Settings 
 
 = 1.0.0 =
 * First release
+
+= 1.1.0 =
+* Minor changes
