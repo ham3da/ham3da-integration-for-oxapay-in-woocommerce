@@ -1,9 +1,9 @@
 === ham3da integration for OxaPay ===
 Contributors: ham3da
-Tags: crypto payment, bitcoin, usdt, bnb, payment gateway, farsi
+Tags: crypto payment, bitcoin, usdt, bnb, payment gateway
 Requires at least: 5.0
-Tested up to: 6.7.1
-Stable tag: 1.1.0
+Tested up to: 6.7
+Stable tag: 1.1.1
 Requires PHP: 7.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -37,6 +37,11 @@ It provides a seamless and secure checkout experience, making it easy for your c
 3. Enable it and complete the settings.
 4. You can now make a test purchase with this payment gateway.
 
+= Requirements =
+
+* This plugin requires [WooCommerce](https://wordpress.org/plugins/woocommerce/).
+* A OxaPay merchant api key ([oxapay](https://oxapay.com))
+
 == Screenshots ==
 
 1. ham3da integration for OxaPay plugin settings (1)
@@ -58,15 +63,6 @@ Yes, You can use "sandbox" as an Merchant API key for testing.
 * If you encounter a problem with the plugin, submit your problem via reviews. 
 * If you have any problems with gateway on oxapay.com, you can chat with their online support through the [OxaPay website](https://oxapay.com).
 
-
-== Installation ==
-
-= Requirements =
-
-* This plugin requires [WooCommerce](https://wordpress.org/plugins/woocommerce/).
-* A OxaPay merchant api key ([oxapay](https://oxapay.com))
-
-
 = Plugin installation =
 
 1. Get started by signing up for a [OxaPay Merchant API](https://oxapay.com/?ref=30943315)
@@ -75,6 +71,10 @@ Yes, You can use "sandbox" as an Merchant API key for testing.
 
 After the plugin is activated, OxaPay will appear in the WooCommerce > Settings > Payments section.
 
+== External services ==
+
+* This plugin connects to the [oxapay.com](https://oxapay.com) API to create Crypto Invoices. This service is provided by "OxaPay": [Terms & privacy policy](https://oxapay.com/).
+* This plugin also connects to the [currencyapi.com](https://currencyapi.com) API to get currency conversion rates. This service is provided by "Everapi GmbH": [Terms of use & privacy policy](https://www.iubenda.com/terms-and-conditions/91377662).
 
 == Changelog ==
 

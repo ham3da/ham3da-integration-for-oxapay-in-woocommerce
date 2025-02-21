@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Woo OxaPay\n"
-"POT-Creation-Date: 2025-02-19 20:13+0330\n"
-"PO-Revision-Date: 2025-02-19 20:15+0330\n"
+"Project-Id-Version: ham3da integration for OxaPay\n"
+"POT-Creation-Date: 2025-02-21 11:56+0330\n"
+"PO-Revision-Date: 2025-02-21 11:56+0330\n"
 "Last-Translator: \n"
 "Language-Team: ham3da.j@gmail.com\n"
 "Language: fa_IR\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: oxapay-for-woo.php\n"
+"X-Poedit-WPHeader: ham3da-integration-for-oxapay-in-woocommerce.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
@@ -210,104 +210,104 @@ msgstr "آن را از %s دریافت کنید"
 msgid "Unknown error"
 msgstr "خطای ناشناخته"
 
-#: inc/gateway-class.php:259
+#: inc/gateway-class.php:260
 msgid "No HMAC signature sent."
 msgstr "امضای HMAC ارسال نشده است."
 
 #. translators: %s: order id
-#: inc/gateway-class.php:274
+#: inc/gateway-class.php:275
 #, php-format
 msgid "Payment has already been completed.[id: %s]"
 msgstr "پرداخت در حال حاضر کامل شده است. [شناسه: %s]"
 
-#: inc/gateway-class.php:276
+#: inc/gateway-class.php:277
 msgid "Payment has already been completed."
 msgstr "پرداخت در حال حاضر تکمیل شده است. [شناسه: %s]"
 
 #. translators: %s: order id
-#: inc/gateway-class.php:280
+#: inc/gateway-class.php:281
 #, php-format
 msgid "Order not found![id: %s]"
 msgstr "سفارش پیدا نشد! [شناسه: %s]"
 
-#: inc/gateway-class.php:373
+#: inc/gateway-class.php:374
 msgid "Payment was successful!"
 msgstr "تراکنش با موفقیت انجام شد!"
 
-#: inc/gateway-class.php:378
+#: inc/gateway-class.php:379
 msgid "Order is confirming."
 msgstr "سفارش در حال تایید است."
 
-#: inc/gateway-class.php:383
+#: inc/gateway-class.php:384
 msgid "Order is failed."
 msgstr "سفارش با شکست مواجه شد."
 
-#: inc/gateway-class.php:389
+#: inc/gateway-class.php:390
 msgid "Order is pending."
 msgstr "سفارش در انتظار است."
 
 #. translators: %s: track Id
-#: inc/gateway-class.php:394
+#: inc/gateway-class.php:395
 #, php-format
 msgid "Awaiting Payment. payment id: %s"
 msgstr "در انتظار پرداخت. شناسه پرداخت: %s"
 
-#: inc/gateway-class.php:461
+#: inc/gateway-class.php:462
 msgid "Error connecting to payment gateway"
 msgstr "خطای اتصال به درگاه پرداخت: %s"
 
-#: inc/gateway-class.php:484
+#: inc/gateway-class.php:485
 msgid "An error has occurred."
 msgstr "خطایی رخ داده است."
 
-#: inc/gateway-class.php:485
+#: inc/gateway-class.php:486
 msgid "An error has occurred. Contact site support."
 msgstr "خطایی رخ داده است. با پشتیبانی سایت تماس بگیرید."
 
 #. translators: %s: error msg
-#: inc/gateway-class.php:488
+#: inc/gateway-class.php:489
 #, php-format
 msgid "Error connecting to the payment gateway: %s"
 msgstr "خطا در اتصال به درگاه پرداخت: %s"
 
-#: inc/gateway-class.php:497 inc/gateway-class.php:498 inc/gateway-class.php:503
+#: inc/gateway-class.php:498 inc/gateway-class.php:499 inc/gateway-class.php:504
 msgid "The payment amount is invalid!"
 msgstr "مبلغ پرداخت نامعتبر است!"
 
-#: inc/gateway-class.php:540
+#: inc/gateway-class.php:541
 msgid "Amount paid:"
 msgstr "مبلغ پرداختی:"
 
-#: inc/gateway-class.php:540
+#: inc/gateway-class.php:541
 msgid "Amount to pay:"
 msgstr "مبلغ پرداختی:"
 
-#: inc/gateway-class.php:542
+#: inc/gateway-class.php:543
 msgid "USD"
 msgstr "دلار"
 
-#: inc/gateway-class.php:547
+#: inc/gateway-class.php:548
 msgid "Track ID:"
 msgstr "شناسه تراکنش:"
 
-#: inc/gateway-class.php:553
+#: inc/gateway-class.php:554
 msgid "Payer address:"
 msgstr "آدرس پرداخت کننده:"
 
-#: inc/gateway-class.php:562
+#: inc/gateway-class.php:563
 msgid "Status:"
 msgstr "وضعیت:"
 
-#: inc/gateway-class.php:566
+#: inc/gateway-class.php:567
 msgid "CryptoCurrency payment"
 msgstr "پرداخت رمز ارزی"
 
-#: inc/gateway-class.php:599
+#: inc/gateway-class.php:600
 msgid "Equal to"
 msgstr "برابر با"
 
 #. translators: %s: amount
-#: inc/gateway-class.php:609
+#: inc/gateway-class.php:610
 #, php-format
 msgid "$ %s"
 msgstr ""

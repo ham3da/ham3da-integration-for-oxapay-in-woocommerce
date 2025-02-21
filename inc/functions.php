@@ -1,14 +1,14 @@
 <?php
 
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
+}
+
 /*
  * Created by Javad Ehteshami(ham3da.ir)
  */
 
-if (!defined('ABSPATH')) {
-    die('Access denied!');
-}
-
-class WC_OxaPay_Utility {
+class HAMINFO_OxaPay_Utility {
 
     public function __construct() {
         
@@ -30,7 +30,7 @@ class WC_OxaPay_Utility {
             $Amount = $new_amount;
         }
 
-        return apply_filters('oxapay_convert_currency', $Amount, $wc_currency, $oxapay_currency, $convert_rate);
+        return apply_filters('haminfo_oxapay_convert_currency', $Amount, $wc_currency, $oxapay_currency, $convert_rate);
     }
 
     public static function is_isset($where, $look) {
@@ -66,7 +66,7 @@ class WC_OxaPay_Utility {
     public static function oxapay_is_money($sum, $cs = 12, $mode = 'half_up') {
         $sum = self::oxapay_is_string($sum);
         $sum = str_replace(',', '.', $sum);
-        $cs = apply_filters('is_money_cs', $cs);
+        $cs = apply_filters('haminfo_oxapay_is_money_cs', $cs);
         $cs = intval($cs);
         if ($cs < 0) {
             $cs = 0;
@@ -90,7 +90,7 @@ class WC_OxaPay_Utility {
                 $new_sum = rtrim($new_sum, '0');
                 $new_sum = rtrim($new_sum, '.');
             }
-            return apply_filters('oxapay_is_money', $new_sum, $sum, $cs, $mode);
+            return apply_filters('haminfo_oxapay_is_money', $new_sum, $sum, $cs, $mode);
         } else {
             return 0;
         }
@@ -110,16 +110,13 @@ class WC_OxaPay_Utility {
         $from = strtoupper($currency);
         $to = 'USD';
 
-
-
-
         $result = false;
         $error_curl = "";
 
         $args = array(
             'headers' => array(
                 'Content-Type' => 'application/json',
-                'user-agent'=> 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
+                'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
         ));
 
         $response = wp_remote_get("https://api.currencyapi.com/v3/latest?apikey=$api_key&base_currency=$to&currencies=$from", $args);
@@ -135,7 +132,7 @@ class WC_OxaPay_Utility {
 
     public static function update_currencyapi_rate() {
 
-        $settings = get_option('woocommerce_' . OxaPay_GID . '_settings');
+        $settings = get_option('woocommerce_' . HAMINFO_OxaPay_GID . '_settings');
         $currencyapi_api_key = isset($settings['currencyapi_api_key']) ? $settings['currencyapi_api_key'] : '';
         if (empty($currencyapi_api_key)) {
             wp_die('Process error[1].', 'Error');
@@ -153,8 +150,8 @@ class WC_OxaPay_Utility {
                 $price = self::is_isset($res_obj->data, $currency);
 
                 if (isset($price->value)) {
-                    $settings['oxapay_convert_rate'] = $price->value;
-                    update_option('woocommerce_' . OxaPay_GID . '_settings', $settings);
+                    $settings['oxapay_convert_rate'] = sanitize_text_field($price->value) ;
+                    update_option('woocommerce_' . HAMINFO_OxaPay_GID . '_settings', $settings);
                 }
                 $message = "Successfully updated.";
             } else {

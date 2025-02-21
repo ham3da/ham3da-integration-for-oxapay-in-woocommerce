@@ -6,19 +6,19 @@
         n = window.wc.wcSettings,
         o = window.wp.htmlEntities;
     var l;
-    const i = (0, n.getPaymentMethodData)("WC_OxaPay_Gateway", {}),
+    const i = (0, n.getPaymentMethodData)("HAMINFO_OxaPay_Gateway", {}),
         c = () => (0, o.decodeEntities)(i.description || ""),
         r = {
-            name: "WC_OxaPay_Gateway",
+            name: "HAMINFO_OxaPay_Gateway",
             label: (0, e.createElement)("img", {
                 src: `${i.icon}`,
-                alt: (0, o.decodeEntities)(i.title || (0, a.__)("OxaPay", "wc_oxl"))
+                alt: (0, o.decodeEntities)(i.title || (0, a.__)("OxaPay", "ham3da-integration-for-oxapay-in-woocommerce"))
             }),
             placeOrderButtonLabel: i.OrderButtonLabel,
             content: (0, e.createElement)(c, null),
             edit: (0, e.createElement)(c, null),
             canMakePayment: () => !0,
-            ariaLabel: (0, o.decodeEntities)((null == i ? void 0 : i.title) || (0, a.__)("Payment via OxaPay", "wc_oxl")),
+            ariaLabel: (0, o.decodeEntities)((null == i ? void 0 : i.title) || (0, a.__)("Payment via OxaPay", "ham3da-integration-for-oxapay-in-woocommerce")),
             supports: {
                 features: null !== (l = i.supports) && void 0 !== l ? l : []
             }
