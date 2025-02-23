@@ -69,5 +69,3 @@ require_once HAM3INFO_OxaPay_PLUGIN_DIR . 'inc/functions.php';
 add_action('woocommerce_review_order_after_order_total', function(){
     HAM3INFO_OxaPay_Gateway::wc_checkout_fields_def();
 });
-
-add_action('wp_ajax_oxapay_check_register', 'HAM3INFO_OxaPay_Utility::ajax_check_register_plugin');
