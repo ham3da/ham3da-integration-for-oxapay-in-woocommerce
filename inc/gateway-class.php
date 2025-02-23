@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 /**
  * OxaPay payment gateway Class.
  */
-class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
+class HAM3INFO_OxaPay_Gateway extends WC_Payment_Gateway {
 
     /** @var bool Whether or not logging is enabled */
     public static $log_enabled = false;
@@ -14,15 +14,15 @@ class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
     /** @var WC_Logger Logger instance */
     public static $log = false;
     protected $notify_url;
-    public static $gate_id = "HAMINFO_OxaPay_Gateway";
-    private $api_key, $debug, $lifetime, $is_fee_paid_by_user;
+    public static $gate_id = "HAM3INFO_OxaPay_Gateway";
+    private $api_key, $debug, $lifetime, $is_fee_paid_by_user, $currencyapi_api_key;
     public $oxapay_convert_rate;
 
     /**
      * Constructor for the gateway.
      */
     public function __construct() {
-        $this->id = 'HAMINFO_OxaPay_Gateway';
+        $this->id = 'HAM3INFO_OxaPay_Gateway';
         $this->has_fields = false;
         $this->order_button_text = $this->get_option('pay_btn_text', __('Pay with OxaPay', "ham3da-integration-for-oxapay-in-woocommerce"));
         $this->method_title = __('OxaPay', "ham3da-integration-for-oxapay-in-woocommerce");
@@ -35,11 +35,12 @@ class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
         // Define user set variables.
         $this->title = $this->get_option('title');
         $this->description = $this->get_option('description', '');
-        $this->lifetime = $this->get_option('lifetime', '15');
+        $this->lifetime = $this->get_option('lifetime', '30');
         $this->is_fee_paid_by_user = $this->get_option('is_fee_paid_by_user', '0');
 
-        $this->icon = apply_filters('HAMINFO_OxaPay_Gateway_logo', $this->get_ico_url());
+        $this->icon = apply_filters('HAM3INFO_OxaPay_Gateway_logo', $this->get_ico_url());
         $this->debug = ('yes' == $this->get_option('debug', 'no'));
+        $this->currencyapi_api_key = $this->get_option('currencyapi_api_key', null);
 
         self::$log_enabled = $this->debug;
 
@@ -51,10 +52,44 @@ class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
 
         add_action('woocommerce_api_' . strtolower(get_class($this)) . '', array($this, 'check_ipn_response'));
 
-        $this->notify_url = WC()->api_request_url('HAMINFO_OxaPay_Gateway');
+        $this->notify_url = WC()->api_request_url('HAM3INFO_OxaPay_Gateway');
 
         add_action('admin_enqueue_scripts', array($this, 'admin_enqueue_scripts'));
         add_action('wp_enqueue_scripts', array($this, 'site_init'));
+
+        add_action('init', array($this, 'init'));
+    }
+
+    function init() {
+        $action = filter_input(INPUT_GET, 'wcox_action', FILTER_SANITIZE_SPECIAL_CHARS);
+        
+        if ($action == 'update_currencyapi_rate') {
+
+            $currency = get_woocommerce_currency();
+            $res = HAM3INFO_OxaPay_Utility::get_last_rate_currency($this->currencyapi_api_key, $currency);
+            if (empty($res['err'])) {
+                $res_obj = $res['res'];
+                $message = "";
+
+                // access the conversion result
+                if (isset($res_obj->data)) {
+                    $price = HAM3INFO_OxaPay_Utility::is_isset($res_obj->data, $currency);
+
+                    if (isset($price->value)) {
+                        
+                        $this->update_option('oxapay_convert_rate', sanitize_text_field($price->value));
+                    }
+                    $message = "Successfully updated.";
+                } else {
+                    $message = $res_obj->message ?? "";
+                }
+            } else {
+                $message = $res['err'];
+            }
+            wp_die('Process done.<br>' . esc_html($message), 'Done');
+        }
+        
+        //die($action);
     }
 
     /**
@@ -92,7 +127,7 @@ class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
 
     function get_ico_url() {
         $icon = $this->get_option('oxapay_logo', null);
-        $url = HAMINFO_OxaPay_PLUGIN_URL . 'assets/images/oxapay.png';
+        $url = HAM3INFO_OxaPay_PLUGIN_URL . 'assets/images/oxapay.png';
         if (!empty($icon)) {
             $url = $icon;
         }
@@ -110,7 +145,7 @@ class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
 
         $c_code = get_woocommerce_currency();
 
-        $fields = apply_filters('HAMINFO_OxaPay_Gateway_Config', array(
+        $fields = apply_filters('HAM3INFO_OxaPay_Gateway_Config', array(
             'oxapay_register' => array(
                 'title' => __('OxaPay Settings', "ham3da-integration-for-oxapay-in-woocommerce"),
                 'description' => '<p class="description">' .
@@ -210,7 +245,6 @@ class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
                 ),
                 'default' => '0',
             ),
-            
             'currencyapi_title' => array(
                 'title' => __('Automatic conversion rate updates', "ham3da-integration-for-oxapay-in-woocommerce"),
                 'type' => 'title',
@@ -237,37 +271,39 @@ class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
         $error_msg = __("Unknown error", "ham3da-integration-for-oxapay-in-woocommerce");
         $auth_ok = false;
         $data = null;
+        $filtered_data = null;
 
         if (isset($_SERVER['HTTP_HMAC']) && !empty($_SERVER['HTTP_HMAC'])) {
 
-
             $postData = file_get_contents('php://input');
-
             $data = json_decode($postData, true);
+            if ($data) {
+                $filters = array_fill_keys(array_keys($data), FILTER_SANITIZE_SPECIAL_CHARS);
+                $filtered_data = filter_var_array($data, $filters);
+                self::log(json_encode($filtered_data));
 
-            $apiSecretKey = $this->api_key;
+                $apiSecretKey = $this->api_key;
 
-            $hmacHeader = filter_var($_SERVER['HTTP_HMAC'], FILTER_SANITIZE_SPECIAL_CHARS);
-            
-            $calculatedHmac = hash_hmac('sha512', $postData, $apiSecretKey);
+                $hmacHeader = filter_var(wp_unslash($_SERVER['HTTP_HMAC']), FILTER_SANITIZE_SPECIAL_CHARS);
 
-            self::log(var_export($data, true));
+                $calculatedHmac = hash_hmac('sha512', $postData, $apiSecretKey);
 
-            if ($calculatedHmac === $hmacHeader) {
-                $auth_ok = true;
+                if ($calculatedHmac === $hmacHeader) {
+                    $auth_ok = true;
+                }
             }
         } else {
             $error_msg = __("No HMAC signature sent.", "ham3da-integration-for-oxapay-in-woocommerce");
         }
 
         if ($auth_ok) {
-            $valid_order_id = $orderId = $data['orderId'];
+            $valid_order_id = $orderId = $filtered_data['orderId'];
             $order = wc_get_order($valid_order_id);
 
             if ($order) {
 
                 if (!$order->is_paid()) {
-                    $this->set_order_status($order, $data);
+                    $this->set_order_status($order, $filtered_data);
                     http_response_code(200);
                 } else {
 
@@ -280,12 +316,12 @@ class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
                 /* translators: %s: order id */
                 $error_msg = sprintf(esc_attr__('Order not found![id: %s]', "ham3da-integration-for-oxapay-in-woocommerce"), $valid_order_id);
 
-                self::log(print_r(['error_msg' => $error_msg], true));
+                self::log(json_encode(['error_msg' => $error_msg]));
                 http_response_code(404);
                 wp_die(esc_html($error_msg), 'error');
             }
         } else {
-            self::log(print_r(['error_msg_auth' => $error_msg], true));
+            self::log(json_encode(['error_msg_auth' => $error_msg]));
             http_response_code(400);
             wp_die(esc_html($error_msg), 'error');
         }
@@ -297,9 +333,9 @@ class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
      * 
      * @param WC_Order $order 
      * @param int $order_id
-     * @param array $request_data
+     * @param array $data request data
      */
-    function save_data($order, $order_id, $request_data) {
+    function save_data($order, $order_id, $data) {
 
         $txID = isset($data['txID']) ? $data['txID'] : null;
         $network = isset($data['network']) ? $data['network'] : null;
@@ -412,8 +448,8 @@ class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
         $Amount = $order->get_total();
         $wc_currency_lower = strtolower($order->get_currency());
 
-        $Amount_to_usd = HAMINFO_OxaPay_Utility::convertCurrency($Amount, $wc_currency_lower, "usd", $this->oxapay_convert_rate);
-        $Amount_to_usd = HAMINFO_OxaPay_Utility::oxapay_is_money($Amount_to_usd, 2);
+        $Amount_to_usd = HAM3INFO_OxaPay_Utility::convertCurrency($Amount, $wc_currency_lower, "usd", $this->oxapay_convert_rate);
+        $Amount_to_usd = HAM3INFO_OxaPay_Utility::oxapay_is_money($Amount_to_usd, 2);
 
         if ($Amount_to_usd > 0) {
 
@@ -468,7 +504,7 @@ class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
 
 
             if (isset($result->result) && $result->result == 100) {
-                self::log(print_r($result, true));
+                self::log(json_encode($result));
                 $trackId = $result->trackId;
 
                 $order->update_meta_data('_oxapay_amount_pay', $Amount_to_usd);
@@ -484,7 +520,7 @@ class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
 
                 $err = __('An error has occurred.', "ham3da-integration-for-oxapay-in-woocommerce");
                 wc_add_notice(__('An error has occurred. Contact site support.', "ham3da-integration-for-oxapay-in-woocommerce"), 'error');
-                $order->add_order_note(print_r([$result,$jsonData], true));
+                $order->add_order_note(json_encode([$result]));
                 /* translators: %s: error msg */
                 $Notice = sprintf(__('Error connecting to the payment gateway: %s', "ham3da-integration-for-oxapay-in-woocommerce"), $err);
 
@@ -560,7 +596,7 @@ class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
             $status_name = isset($status_labels[$order_new->get_status()]) ? $status_labels[$order_new->get_status()] : ucfirst($order_new->get_status());
 
             $wm_detail .= '<tr>'
-                    . '<th scope="row">' . esc_html__('Status:', "ham3da-integration-for-oxapay-in-woocommerce") . '</th><td>' . esc_attr($status_name)  . '</td>'
+                    . '<th scope="row">' . esc_html__('Status:', "ham3da-integration-for-oxapay-in-woocommerce") . '</th><td>' . esc_attr($status_name) . '</td>'
                     . '</tr>';
 
             if (!empty($wm_detail)) {
@@ -572,7 +608,7 @@ class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
                         . '</table>';
 
                 $res_text = wpautop($wm_detail2);
-                $res_text = apply_filters('oxapay_details_after_order_table', $res_text, $wm_amount_pay, $wm_currency, $order);
+                $res_text = apply_filters('ham3info_oxapay_details_after_order_table', $res_text, $wm_amount_pay, $wm_currency, $order);
                 echo wp_kses($res_text, 'post');
             }
         }
@@ -603,8 +639,8 @@ class HAMINFO_OxaPay_Gateway extends WC_Payment_Gateway {
                     <td>
                         <?php
                         $Amount = WC()->cart->total;
-                        $Amount_to_usd = HAMINFO_OxaPay_Utility::convertCurrency($Amount, strtolower($wc_cuurency), "usd", $wm_convert_rate2);
-                        $Amount_to_usd = HAMINFO_OxaPay_Utility::oxapay_is_money($Amount_to_usd, 2);
+                        $Amount_to_usd = HAM3INFO_OxaPay_Utility::convertCurrency($Amount, strtolower($wc_cuurency), "usd", $wm_convert_rate2);
+                        $Amount_to_usd = HAM3INFO_OxaPay_Utility::oxapay_is_money($Amount_to_usd, 2);
 
                         /* translators: %s: amount */
                         printf(esc_html__('$ %s', "ham3da-integration-for-oxapay-in-woocommerce"), number_format($Amount_to_usd, 2));

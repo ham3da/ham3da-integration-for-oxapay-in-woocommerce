@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) {
  * Created by Javad Ehteshami(ham3da.ir)
  */
 
-class HAMINFO_OxaPay_Utility {
+class HAM3INFO_OxaPay_Utility {
 
     public function __construct() {
         
@@ -30,7 +30,7 @@ class HAMINFO_OxaPay_Utility {
             $Amount = $new_amount;
         }
 
-        return apply_filters('haminfo_oxapay_convert_currency', $Amount, $wc_currency, $oxapay_currency, $convert_rate);
+        return apply_filters('ham3info_oxapay_convert_currency', $Amount, $wc_currency, $oxapay_currency, $convert_rate);
     }
 
     public static function is_isset($where, $look) {
@@ -66,7 +66,7 @@ class HAMINFO_OxaPay_Utility {
     public static function oxapay_is_money($sum, $cs = 12, $mode = 'half_up') {
         $sum = self::oxapay_is_string($sum);
         $sum = str_replace(',', '.', $sum);
-        $cs = apply_filters('haminfo_oxapay_is_money_cs', $cs);
+        $cs = apply_filters('ham3info_oxapay_is_money_cs', $cs);
         $cs = intval($cs);
         if ($cs < 0) {
             $cs = 0;
@@ -90,7 +90,7 @@ class HAMINFO_OxaPay_Utility {
                 $new_sum = rtrim($new_sum, '0');
                 $new_sum = rtrim($new_sum, '.');
             }
-            return apply_filters('haminfo_oxapay_is_money', $new_sum, $sum, $cs, $mode);
+            return apply_filters('ham3info_oxapay_is_money', $new_sum, $sum, $cs, $mode);
         } else {
             return 0;
         }
@@ -130,36 +130,5 @@ class HAMINFO_OxaPay_Utility {
         return array('res' => $result, 'err' => $error_curl);
     }
 
-    public static function update_currencyapi_rate() {
 
-        $settings = get_option('woocommerce_' . HAMINFO_OxaPay_GID . '_settings');
-        $currencyapi_api_key = isset($settings['currencyapi_api_key']) ? $settings['currencyapi_api_key'] : '';
-        if (empty($currencyapi_api_key)) {
-            wp_die('Process error[1].', 'Error');
-        }
-
-        $currency = get_woocommerce_currency();
-        $res = self::get_last_rate_currency($currencyapi_api_key, $currency);
-
-        if (empty($res['err'])) {
-            $res_obj = $res['res'];
-            $message = "";
-
-            // access the conversion result
-            if (isset($res_obj->data)) {
-                $price = self::is_isset($res_obj->data, $currency);
-
-                if (isset($price->value)) {
-                    $settings['oxapay_convert_rate'] = sanitize_text_field($price->value) ;
-                    update_option('woocommerce_' . HAMINFO_OxaPay_GID . '_settings', $settings);
-                }
-                $message = "Successfully updated.";
-            } else {
-                $message = $res_obj->message ?? "";
-            }
-        } else {
-            $message = $res['err'];
-        }
-        wp_die('Process done.<br>' . esc_html($message), 'Done');
-    }
 }

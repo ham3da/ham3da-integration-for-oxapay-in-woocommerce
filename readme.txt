@@ -73,8 +73,15 @@ After the plugin is activated, OxaPay will appear in the WooCommerce > Settings 
 
 == External services ==
 
-* This plugin connects to the [oxapay.com](https://oxapay.com) API to create Crypto Invoices. This service is provided by "OxaPay": [Terms & privacy policy](https://oxapay.com/).
-* This plugin also connects to the [currencyapi.com](https://currencyapi.com) API to get currency conversion rates. This service is provided by "Everapi GmbH": [Terms of use & privacy policy](https://www.iubenda.com/terms-and-conditions/91377662).
+= Oxapay API=
+This plugin connects to the [api.oxapay.com](https://api.oxapay.com) API to create Crypto Invoices. 
+It only sends order information including amount, order number, and currency type to the API for payment.
+This service is provided by "OxaPay": [Terms & privacy policy](https://oxapay.com/).
+
+= Currencyapi API =
+This plugin also connects to the [api.currencyapi.com](https://api.currencyapi.com) API to get currency conversion rates.
+No user information is sent to the API.
+This service is provided by "Everapi GmbH": [Terms of use & privacy policy](https://www.iubenda.com/terms-and-conditions/91377662).
 
 == Changelog ==
 
@@ -82,4 +89,10 @@ After the plugin is activated, OxaPay will appear in the WooCommerce > Settings 
 * First release
 
 = 1.1.0 =
+* Minor changes
+
+= 1.1.1 =
+* Minor changes
+
+= 1.1.2 =
 * Minor changes

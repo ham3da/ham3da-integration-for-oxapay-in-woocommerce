@@ -6,10 +6,10 @@
         n = window.wc.wcSettings,
         o = window.wp.htmlEntities;
     var l;
-    const i = (0, n.getPaymentMethodData)("HAMINFO_OxaPay_Gateway", {}),
+    const i = (0, n.getPaymentMethodData)("HAM3INFO_OxaPay_Gateway", {}),
         c = () => (0, o.decodeEntities)(i.description || ""),
         r = {
-            name: "HAMINFO_OxaPay_Gateway",
+            name: "HAM3INFO_OxaPay_Gateway",
             label: (0, e.createElement)("img", {
                 src: `${i.icon}`,
                 alt: (0, o.decodeEntities)(i.title || (0, a.__)("OxaPay", "ham3da-integration-for-oxapay-in-woocommerce"))

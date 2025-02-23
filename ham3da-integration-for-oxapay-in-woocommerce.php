@@ -20,18 +20,14 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
-define('HAMINFO_OxaPay_PLUGIN_VER', '1.1.1');
+define('HAM3INFO_OxaPay_PLUGIN_VER', '1.1.2');
 
-define('HAMINFO_OxaPay_PLUGIN_FILE', __FILE__);
-define('HAMINFO_OxaPay_PLUGIN_DIR', plugin_dir_path(__FILE__));
-define('HAMINFO_OxaPay_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('HAMINFO_OxaPay_HAM3DA', 0);
+define('HAM3INFO_OxaPay_PLUGIN_FILE', __FILE__);
+define('HAM3INFO_OxaPay_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('HAM3INFO_OxaPay_PLUGIN_URL', plugin_dir_url(__FILE__));
 
-define('HAMINFO_OxaPay_GID', 'HAMINFO_OxaPay_Gateway');
+define('HAM3INFO_OxaPay_GID', 'HAM3INFO_OxaPay_Gateway');
 
-add_action('plugins_loaded', function () {
-    load_plugin_textdomain("ham3da-integration-for-oxapay-in-woocommerce", false, basename(dirname(__FILE__)) . '/lang');
-});
 
 
 add_action('before_woocommerce_init', function () {
@@ -40,47 +36,38 @@ add_action('before_woocommerce_init', function () {
     }
 });
 
-function haminfo_oxapay_ad_gateway($methods)
+function ham3info_oxapay_ad_gateway($methods)
 {
-    $methods[] = 'HAMINFO_OxaPay_Gateway';
+    $methods[] = 'HAM3INFO_OxaPay_Gateway';
     return $methods;
 }
 
 add_action('plugins_loaded', function () {
     if (class_exists('WC_Payment_Gateway'))
     {
-        require_once HAMINFO_OxaPay_PLUGIN_DIR . 'inc/gateway-class.php';
-        add_filter('woocommerce_payment_gateways', 'haminfo_oxapay_ad_gateway');
+        require_once HAM3INFO_OxaPay_PLUGIN_DIR . 'inc/gateway-class.php';
+        add_filter('woocommerce_payment_gateways', 'ham3info_oxapay_ad_gateway');
     }
     
-    add_action('woocommerce_order_details_after_order_table',  'HAMINFO_OxaPay_Gateway::details_after_order_table' , 1, 1);
+    add_action('woocommerce_order_details_after_order_table',  'HAM3INFO_OxaPay_Gateway::details_after_order_table' , 1, 1);
 }, 0);
 
-function oxapay_woo_blocks_support() {
+function ham3info_oxapay_woo_blocks_support() {
     if (class_exists('Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType')) {
         add_action('woocommerce_blocks_payment_method_type_registration',
                 function (Automattic\WooCommerce\Blocks\Payments\PaymentMethodRegistry $payment_method_registry) {
-                    require_once HAMINFO_OxaPay_PLUGIN_DIR . 'inc/woo-block.php';
-                    $payment_method_registry->register(new HAMINFO_OxaPay_Payments_Block());
+                    require_once HAM3INFO_OxaPay_PLUGIN_DIR . 'inc/woo-block.php';
+                    $payment_method_registry->register(new HAM3INFO_OxaPay_Payments_Block());
                 }
         );
     }
 }
-add_action('woocommerce_blocks_loaded', 'oxapay_woo_blocks_support');
+add_action('woocommerce_blocks_loaded', 'ham3info_oxapay_woo_blocks_support');
 
-require_once HAMINFO_OxaPay_PLUGIN_DIR . 'inc/functions.php';
+require_once HAM3INFO_OxaPay_PLUGIN_DIR . 'inc/functions.php';
 
-//add_action('woocommerce_review_order_after_order_total', function(){
-//    HAMINFO_OxaPay_Gateway::wc_checkout_fields_def();
-//});
-
-add_action('wp_ajax_oxapay_check_register', 'HAMINFO_OxaPay_Utility::ajax_check_register_plugin');
-add_action('init', function () {
-     $action = filter_input(INPUT_GET, 'wcox_action', FILTER_SANITIZE_SPECIAL_CHARS);
-    if ($action == 'update_currencyapi_rate')
-    {
-        HAMINFO_OxaPay_Utility::update_currencyapi_rate();
-    }
+add_action('woocommerce_review_order_after_order_total', function(){
+    HAM3INFO_OxaPay_Gateway::wc_checkout_fields_def();
 });
 
-
+add_action('wp_ajax_oxapay_check_register', 'HAM3INFO_OxaPay_Utility::ajax_check_register_plugin');
