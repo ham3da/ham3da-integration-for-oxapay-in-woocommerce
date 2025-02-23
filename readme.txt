@@ -3,7 +3,7 @@ Contributors: ham3da
 Tags: crypto payment, bitcoin, usdt, bnb, payment gateway
 Requires at least: 5.0
 Tested up to: 6.7
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 Requires PHP: 7.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html

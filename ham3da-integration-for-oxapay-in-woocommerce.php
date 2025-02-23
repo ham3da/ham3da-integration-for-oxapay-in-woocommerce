@@ -6,7 +6,7 @@
  * Description: Accept cryptocurrency payments on your WooCommerce store.
  * Author: ham3da
  * Author URI: https://ham3da.ir
- * Version: 1.1.1
+ * Version: 1.1.2
  * Text Domain: ham3da-integration-for-oxapay-in-woocommerce
  * Domain Path: /lang
  * Requires Plugins: woocommerce
