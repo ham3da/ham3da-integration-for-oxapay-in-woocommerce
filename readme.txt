@@ -73,7 +73,7 @@ After the plugin is activated, OxaPay will appear in the WooCommerce > Settings 
 
 == External services ==
 
-= Oxapay API=
+= Oxapay API =
 This plugin connects to the [api.oxapay.com](https://api.oxapay.com) API to create Crypto Invoices. 
 It only sends order information including amount, order number, and currency type to the API for payment.
 This service is provided by "OxaPay": [Terms & privacy policy](https://oxapay.com/).
