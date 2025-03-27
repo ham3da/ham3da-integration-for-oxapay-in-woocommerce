@@ -16,4 +16,4 @@ It provides a seamless and secure checkout experience, making it easy for your c
 * Clean Code
 
 ## Download or Install
-To download this plugin, go to [wordpress.org/plugins/ham3da-integration-for-oxapay-in-woocommerce](https://wordpress.org/plugins/ham3da-integration-for-oxapay-in-woocommerce)
+To download this plugin, go to [wordpress.org/plugins/ham3da-integration-for-oxapay-in-woocommerce](https://wordpress.org/plugins/ham3da-integration-for-oxapay-in-woocommerce) .
