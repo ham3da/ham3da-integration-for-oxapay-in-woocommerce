@@ -2,7 +2,7 @@
 Contributors: ham3da
 Tags: crypto payment, bitcoin, usdt, bnb, payment gateway
 Requires at least: 5.0
-Tested up to: 6.7
+Tested up to: 6.8
 Stable tag: 1.1.2
 Requires PHP: 7.2
 License: GPLv3 or later
@@ -96,3 +96,6 @@ This service is provided by "Everapi GmbH": [Terms of use & privacy policy](http
 
 = 1.1.2 =
 * Minor changes
+
+= 1.1.3 =
+* Compatibility with WordPress 6.8
